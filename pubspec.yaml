@@ -30,6 +30,9 @@ dependencies:
   cloud_firestore: ^0.13.5
   firebase_auth: ^0.16.1
 
+  agora_rtc_engine:
+  permission_handler:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

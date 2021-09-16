@@ -1,5 +1,6 @@
 import 'package:calmify_/home/home.dart';
 import 'package:calmify_/login/auth_screen.dart';
+import 'package:calmify_/src/pages/index.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,15 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calmify',
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.onAuthStateChanged,
-        builder: (ctx, userSanpShot) {
-          if (userSanpShot.hasData) {
-            return HomeScreen();
-          }
-          return AuthScreen();
-        },
-      ),
+      home: IndexPage(),
+    //   StreamBuilder(
+    //   stream: FirebaseAuth.instance.onAuthStateChanged,
+    //   builder: (ctx, userSanpShot) {
+    //     if (userSanpShot.hasData) {
+    //       return HomeScreen();
+    //     }
+    //     return AuthScreen();
+    //   },
+    // ),
     );
   }
 }
