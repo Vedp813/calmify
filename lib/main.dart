@@ -16,16 +16,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calmify',
-      home: CallPage(),
-    //   StreamBuilder(
-    //   stream: FirebaseAuth.instance.onAuthStateChanged,
-    //   builder: (ctx, userSanpShot) {
-    //     if (userSanpShot.hasData) {
-    //       return HomeScreen();
-    //     }
-    //     return AuthScreen();
-    //   },
-    // ),
+      home:
+      StreamBuilder(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (ctx, userSanpShot) {
+        if (userSanpShot.hasData) {
+          return HomeScreen();
+        }
+        return AuthScreen();
+      },
+    ),
     );
   }
 }
