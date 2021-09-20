@@ -15,9 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
-        actions: [
-          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Appointment()));}, icon: Icon(Icons.settings_applications_outlined))
-        ],
       ),
       body: Container(
         child: InkWell(
