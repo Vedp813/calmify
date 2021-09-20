@@ -1,6 +1,7 @@
+import 'package:calmify_/appointment/appointment.dart';
 import 'package:calmify_/home/home.dart';
 import 'package:calmify_/login/auth_screen.dart';
-import 'package:calmify_/src/pages/index.dart';
+import 'package:calmify_/videocall/call.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calmify',
-      home: IndexPage(),
+      home: CallPage(),
     //   StreamBuilder(
     //   stream: FirebaseAuth.instance.onAuthStateChanged,
     //   builder: (ctx, userSanpShot) {
