@@ -1,4 +1,5 @@
 import 'package:calmify_/home/home.dart';
+import 'package:calmify_/home/nav_bar.dart';
 import 'package:calmify_/login/auth_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.onAuthStateChanged,
           builder: (ctx, userSanpShot) {
             if (userSanpShot.hasData) {
-              return HomeScreen();
+              return NavBar();
             }
             return AuthScreen();
           },

@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           0.1,
                                     ),
                                     Text(
-                                      'Telephonic\nAppointment',
+                                      'Book\nAppointment',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
