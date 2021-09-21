@@ -31,6 +31,9 @@ dependencies:
   firebase_auth: ^0.16.1
   bottom_navy_bar: ^5.6.0
 
+  agora_rtc_engine:
+  permission_handler:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

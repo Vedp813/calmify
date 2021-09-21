@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"assets/article.png":["assets/article.png"],"assets/chat.png":["assets/chat.png"],"assets/heart.png":["assets/heart.png"],"assets/home_pic.png":["assets/home_pic.png"],"assets/login_pic.png":["assets/login_pic.png"],"assets/login_pic2.png":["assets/login_pic2.png"],"assets/logo.png":["assets/logo.png"],"assets/phone-call.png":["assets/phone-call.png"],"assets/share.png":["assets/share.png"],"assets/user.png":["assets/user.png"],"packages/cupertino_icons/assets/CupertinoIcons.ttf":["packages/cupertino_icons/assets/CupertinoIcons.ttf"]}
+=======
+{"assets/login_pic.png":["assets/login_pic.png"],"assets/login_pic2.png":["assets/login_pic2.png"],"packages/cupertino_icons/assets/CupertinoIcons.ttf":["packages/cupertino_icons/assets/CupertinoIcons.ttf"]}
+>>>>>>> 834c8142794b5ab4ebadcee1d629da29bf1919c0
