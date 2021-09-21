@@ -1,6 +1,8 @@
 import 'package:calmify_/appointment/appointment.dart';
+import 'package:calmify_/booked/booked.dart';
 import 'package:calmify_/home/home.dart';
 import 'package:calmify_/login/auth_screen.dart';
+import 'search/search.dart';
 import 'package:calmify_/videocall/call.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Calmify',
-        home: StreamBuilder(
+         home:
+
+        StreamBuilder(
           stream: FirebaseAuth.instance.onAuthStateChanged,
           builder: (ctx, userSanpShot) {
             if (userSanpShot.hasData) {
@@ -24,5 +28,6 @@ class MyApp extends StatelessWidget {
             return AuthScreen();
           },
         ));
+
   }
 }
