@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">595038792372-iq834thcol2rhi9od47vflr6r9sertlm.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">595038792372</string>
+    <string name="google_api_key" translatable="false">AIzaSyDgTJB6s5JdffHxi_ROz6mZQgr_wHSyNF8</string>
+    <string name="google_app_id" translatable="false">1:595038792372:android:77dbbb28560ce434fb05e1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDgTJB6s5JdffHxi_ROz6mZQgr_wHSyNF8</string>
+    <string name="google_storage_bucket" translatable="false">calmify-36fd4.appspot.com</string>
+    <string name="project_id" translatable="false">calmify-36fd4</string>
+</resources>
