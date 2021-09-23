@@ -13,12 +13,12 @@ class _AuthScreenState extends State<AuthScreen> {
   final _auth = FirebaseAuth.instance;
   var _isLoading = false;
   void _submitAuthForm(
-    String email,
-    String password,
-    String username,
-    bool isLogin,
-    BuildContext ctx,
-  ) async {
+      String email,
+      String password,
+      String username,
+      bool isLogin,
+      BuildContext ctx,
+      ) async {
     AuthResult authResult;
     try {
       setState(() {

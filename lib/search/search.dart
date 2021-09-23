@@ -1,5 +1,6 @@
 import 'package:calmify_/appointment/appointment.dart';
 import 'package:calmify_/color/color%20const.dart';
+import 'package:calmify_/nav_bar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,13 +19,16 @@ class SearchDoctor extends StatelessWidget {
         elevation: 0,
         title:  Text('Search Doctors',textAlign: TextAlign.center,style: TextStyle(color: primaryColor),),
         backgroundColor: Colors.white,
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios_outlined,color: primaryColor,size: 25,),
-        onPressed: (){Navigator.pop(context);}
+        leading: IconButton(
+            icon:Icon(Icons.arrow_back_ios_outlined,color: primaryColor,size: 25,),
+            onPressed: (){
+             Navigator.pushReplacement(context,MaterialPageRoute(builder: (comtext)=>NavBar()));
+            }
         ),),
       body: ListView.builder(
         itemBuilder: (context, index) =>
             GestureDetector(
-              onTap: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Appointment()));},
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Appointment()));},
               child: Container(
                 height: 120,
                 color: Colors.grey[100],

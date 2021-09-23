@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
   AuthForm(
-    this.submitFn,
-    this.isLoading,
-  );
+      this.submitFn,
+      this.isLoading,
+      );
   final bool isLoading;
   final void Function(
-    String email,
-    String password,
-    String userName,
-    bool isLogin,
-    BuildContext ctx,
-  ) submitFn;
+      String email,
+      String password,
+      String userName,
+      bool isLogin,
+      BuildContext ctx,
+      ) submitFn;
   @override
   _AuthFormState createState() => _AuthFormState();
 }
@@ -165,7 +165,7 @@ class _AuthFormState extends State<AuthForm> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2.0),
+                          const BorderSide(color: Colors.black, width: 2.0),
                         ),
                         labelText: '   Enter Password',
                       ),
@@ -226,7 +226,7 @@ class _AuthFormState extends State<AuthForm> {
                             color: Colors.white,
                             textColor: Colors.grey,
                             child:
-                                Text(_isLogin ? 'Create account' : 'Log In?'),
+                            Text(_isLogin ? 'Create account' : 'Log In?'),
                             onPressed: () {
                               setState(() {
                                 _isLogin = !_isLogin;

@@ -2,6 +2,7 @@ import 'package:calmify_/appointment/appointment.dart';
 import 'package:calmify_/booked/booked.dart';
 import 'package:calmify_/home/home.dart';
 import 'package:calmify_/login/auth_screen.dart';
+import 'package:calmify_/nav_bar.dart';
 import 'search/search.dart';
 import 'package:calmify_/videocall/call.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.onAuthStateChanged,
           builder: (ctx, userSanpShot) {
             if (userSanpShot.hasData) {
-              return HomeScreen();
+              return NavBar();
             }
             return AuthScreen();
           },

@@ -1,7 +1,12 @@
+import 'package:calmify_/booked/booked.dart';
+import 'package:calmify_/chat/chat_screen.dart';
 import 'package:calmify_/color/color%20const.dart';
+import 'package:calmify_/search/search.dart';
 import 'package:calmify_/videocall//call.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../nav_bar.dart';
 
 class Appointment extends StatefulWidget {
   @override
@@ -38,7 +43,7 @@ class _AppointmentState extends State<Appointment> {
                 IconButton(
                   icon: Icon(Icons.arrow_back_ios_outlined),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SearchDoctor()));
                   },
                 ),
               ),
@@ -142,44 +147,29 @@ class _AppointmentState extends State<Appointment> {
                       Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: appointment ? primaryColor : containerColor,
+                          color:primaryColor,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: IconButton(icon:Icon(Icons.phone,size: 22,color: Colors.white,),
                           onPressed: (){
-                          setState(() {
-                            appointment = !appointment;
-                          });
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>NavBar()));
+                              buildings.add(2);
                           },
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color:appointment? containerColor:primaryColor,
+                          color: primaryColor,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: IconButton(icon:Icon(Icons.message,size: 22,color: Colors.white,),
                         onPressed: (){
-                          setState(() {
-                            appointment =! appointment;
-                          });
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
                         },
                         ),
                       ),
                     ],
-                  ),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      height: 60,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: primaryColor
-                      ),
-                      child :Center(child: Text("Book Appointment",style: TextStyle(fontSize: 20,color: Colors.white,fontFamily: "DM Sans"),)),
-                  ),
                   ),
                 ],
               ),

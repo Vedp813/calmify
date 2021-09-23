@@ -1,9 +1,11 @@
 import 'package:calmify_/appointment/appointment.dart';
 import 'package:calmify_/color/color%20const.dart';
+import 'package:calmify_/nav_bar.dart';
+import 'package:calmify_/videocall/call.dart';
 import 'package:flutter/material.dart';
-
+List buildings = [1];
 class Booked extends StatelessWidget {
-  final buildings = ['1', '2', '3', '4', '5', '6'];
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +19,15 @@ class Booked extends StatelessWidget {
           style: TextStyle(color: primaryColor),
         ),
         backgroundColor: Colors.white,
-        leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_outlined,
-              color: primaryColor,
-              size: 25,
-            ),
+        leading: IconButton(icon: Icon(
+          Icons.arrow_back_ios_outlined,
+          color: Color(0xff003C8F),
+          size: 25,
+        ),
             onPressed: () {
               Navigator.pop(context);
-            }),
+            }
+            ),
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => GestureDetector(
@@ -66,7 +68,7 @@ class Booked extends StatelessWidget {
                           style: TextStyle(fontSize: 24, color: primaryColor),
                         ),
                         FlatButton(
-                          onPressed: () {},
+                          onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CallPage()));},
                           child: Text(
                             "Join",
                             style: TextStyle(fontSize: 8, color: Colors.white),
@@ -93,7 +95,7 @@ class Booked extends StatelessWidget {
                           Image(image: AssetImage("assets/clock.png"),width: 20,height: 20,),
                         SizedBox(width: 8,),
                           Text(
-                            "23 Sept 2021",
+                            "10:24 pm",
                             style: TextStyle(color: primaryColor, fontSize: 14),
                           ),
                       ],

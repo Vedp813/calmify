@@ -1,5 +1,8 @@
 import 'package:calmify_/appointment/appointment.dart';
+import 'package:calmify_/chat/chat_screen.dart';
 import 'package:calmify_/color/color%20const.dart';
+import '../custome_dialogbox.dart';
+import '../motivation_page.dart';
 import '../search/search.dart';
 import 'package:calmify_/videocall/call.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -53,9 +56,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            CircleAvatar(
-                              backgroundColor: Color(0xff054195),
-                              backgroundImage: AssetImage('assets/user.png'),
+                            GestureDetector(
+                              onTap: (){
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => CustomDialogBox(
+                                    title: 'Sign Out ?',
+                                    contentText: '',
+                                    action1Text: 'Yes',
+                                    action2Text: 'No',
+                                    action1onPressed: () {
+                                      Navigator.of(context).pop();
+                                     FirebaseAuth.instance.signOut();
+                                    },
+                                    action2onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                );
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: Color(0xff054195),
+                                backgroundImage: AssetImage('assets/user.png'),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.025,
@@ -67,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           'assets/home_pic.png',
                           width: double.infinity,
                           height: MediaQuery.of(context).size.height * 0.29,
+                          fit : BoxFit.cover,
                         ),
                         // Container(
                         //   child: InkWell(
@@ -127,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CallPage()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SearchDoctor()));
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
@@ -146,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             0.1,
                                       ),
                                       Text(
-                                        'Telephonic\nAppointment',
+                                        'Book\nAppointment',
                                         style: TextStyle(
                                           color: Colors.white,
                                         ),
@@ -157,7 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
+                              },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
@@ -206,45 +232,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Column(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: ListTile(
-                                leading: Image.asset('assets/article.png'),
-                                title: Text('How to deal with failures'),
-                                subtitle: Text('By Nishant Jain'),
-                                trailing: InkWell(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    'assets/share.png',
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.08,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: ListTile(
-                                leading: Image.asset('assets/article.png'),
-                                title: Text('How to deal with failures'),
-                                subtitle: Text('By Nishant Jain'),
-                                trailing: InkWell(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    'assets/share.png',
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.08,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MotivationPage()));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ListTile(
+                                  leading: Image.asset('assets/article.png'),
+                                  title: Text('How to deal with failures'),
+                                  subtitle: Text('By Nishant Jain'),
+                                  trailing: InkWell(
+                                    onTap: () {},
+                                    child: Image.asset(
+                                      'assets/share.png',
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -252,22 +263,61 @@ class _HomeScreenState extends State<HomeScreen> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MotivationPage()));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ListTile(
+                                  leading: Image.asset('assets/article.png'),
+                                  title: Text('How to deal with failures'),
+                                  subtitle: Text('By Nishant Jain'),
+                                  trailing: InkWell(
+                                    onTap: () {},
+                                    child: Image.asset(
+                                      'assets/share.png',
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: ListTile(
-                                leading: Image.asset('assets/article.png'),
-                                title: Text('How to deal with failures'),
-                                subtitle: Text('By Nishant Jain'),
-                                trailing: InkWell(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    'assets/share.png',
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.08,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MotivationPage()));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ListTile(
+                                  leading: Image.asset('assets/article.png'),
+                                  title: Text('How to deal with failures'),
+                                  subtitle: Text('By Nishant Jain'),
+                                  trailing: InkWell(
+                                    onTap: () {},
+                                    child: Image.asset(
+                                      'assets/share.png',
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                    ),
                                   ),
                                 ),
                               ),
