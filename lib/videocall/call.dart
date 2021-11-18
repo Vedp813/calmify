@@ -8,7 +8,7 @@ import 'settings.dart';
 
 class CallPage extends StatefulWidget {
   /// non-modifiable channel name of the page
-  final String channelName = "abc";
+  final String channelName = "doctor";
 
   /// non-modifiable client role of the page
   final ClientRole role = ClientRole.Broadcaster;

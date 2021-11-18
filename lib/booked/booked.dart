@@ -3,10 +3,11 @@ import 'package:calmify_/color/color%20const.dart';
 import 'package:calmify_/nav_bar.dart';
 import 'package:calmify_/videocall/call.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 List buildings = [1];
+
 class Booked extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +20,15 @@ class Booked extends StatelessWidget {
           style: TextStyle(color: primaryColor),
         ),
         backgroundColor: Colors.white,
-        leading: IconButton(icon: Icon(
-          Icons.arrow_back_ios_outlined,
-          color: Color(0xff003C8F),
-          size: 25,
-        ),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_outlined,
+              color: Color(0xff003C8F),
+              size: 25,
+            ),
             onPressed: () {
               Navigator.pop(context);
-            }
-            ),
+            }),
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => GestureDetector(
@@ -68,7 +69,9 @@ class Booked extends StatelessWidget {
                           style: TextStyle(fontSize: 24, color: primaryColor),
                         ),
                         FlatButton(
-                          onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CallPage()));},
+                          onPressed: () {
+                            onJoin(context);
+                          },
                           child: Text(
                             "Join",
                             style: TextStyle(fontSize: 8, color: Colors.white),
@@ -85,19 +88,33 @@ class Booked extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                          Image(image: AssetImage("assets/calendar.png"),width: 20,height: 20,),
-                        SizedBox(width: 8,),
-                          Text(
-                            "23 Sept 2021",
-                            style: TextStyle(color: primaryColor, fontSize: 14),
-                          ),
-                          SizedBox(width: 40,),
-                          Image(image: AssetImage("assets/clock.png"),width: 20,height: 20,),
-                        SizedBox(width: 8,),
-                          Text(
-                            "10:24 pm",
-                            style: TextStyle(color: primaryColor, fontSize: 14),
-                          ),
+                        Image(
+                          image: AssetImage("assets/calendar.png"),
+                          width: 20,
+                          height: 20,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          "23 Sept 2021",
+                          style: TextStyle(color: primaryColor, fontSize: 14),
+                        ),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        Image(
+                          image: AssetImage("assets/clock.png"),
+                          width: 20,
+                          height: 20,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          "10:24 pm",
+                          style: TextStyle(color: primaryColor, fontSize: 14),
+                        ),
                       ],
                     ),
                   ],
@@ -109,5 +126,24 @@ class Booked extends StatelessWidget {
         itemCount: buildings.length,
       ),
     );
+  }
+
+  Future<void> onJoin(BuildContext context) async {
+    // update input validation
+    // await for camera and mic permissions before pushing video page
+    await _handleCameraAndMic(Permission.camera);
+    await _handleCameraAndMic(Permission.microphone);
+    // push video page with given channel name
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CallPage(),
+      ),
+    );
+  }
+
+  Future<void> _handleCameraAndMic(Permission permission) async {
+    final status = await permission.request();
+    print(status);
   }
 }

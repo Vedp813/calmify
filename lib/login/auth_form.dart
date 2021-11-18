@@ -177,7 +177,7 @@ class _AuthFormState extends State<AuthForm> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
-                    if (widget.isLoading) CircularProgressIndicator(),
+                    if (widget.isLoading) Center(child: CircularProgressIndicator()),
                     if (!widget.isLoading)
                       Center(
                         child: Container(

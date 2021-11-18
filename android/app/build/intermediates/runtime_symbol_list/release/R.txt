@@ -193,14 +193,13 @@ int string common_open_on_phone 0x7f090010
 int string common_signin_button_text 0x7f090011
 int string common_signin_button_text_long 0x7f090012
 int string default_web_client_id 0x7f090013
-int string fcm_fallback_notification_channel_label 0x7f090014
-int string gcm_defaultSenderId 0x7f090015
-int string google_api_key 0x7f090016
-int string google_app_id 0x7f090017
-int string google_crash_reporting_api_key 0x7f090018
-int string google_storage_bucket 0x7f090019
-int string project_id 0x7f09001a
-int string status_bar_notification_info_overflow 0x7f09001b
+int string gcm_defaultSenderId 0x7f090014
+int string google_api_key 0x7f090015
+int string google_app_id 0x7f090016
+int string google_crash_reporting_api_key 0x7f090017
+int string google_storage_bucket 0x7f090018
+int string project_id 0x7f090019
+int string status_bar_notification_info_overflow 0x7f09001a
 int style LaunchTheme 0x7f0a0000
 int style NormalTheme 0x7f0a0001
 int style TextAppearance_Compat_Notification 0x7f0a0002
@@ -256,4 +255,3 @@ int[] styleable SignInButton { 0x7f010001, 0x7f010003, 0x7f010010 }
 int styleable SignInButton_buttonSize 0
 int styleable SignInButton_colorScheme 1
 int styleable SignInButton_scopeUris 2
-int xml flutter_image_picker_file_paths 0x7f0c0000
